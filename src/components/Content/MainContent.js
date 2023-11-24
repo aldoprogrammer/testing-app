@@ -25,52 +25,48 @@ export default function MainContent () {
                 <ImoprtBtn />
             </div> 
             <div className="flex flex-wrap
-            bg-[#313131] rounded-sm mt-8
-            py-[16px] px-[32px] items-center
+            bg-[#313131] rounded-md mt-8
+            py-[16px] px-[22px] items-center
             text-white gap-4 md:mx-0
             mx-auto">
                 <span
                    className="font-medium
-                   text-[14px]"     
+                   text-[12px]"     
                 >
                 Category</span>
                 <span
                      className="font-medium
-                     text-[14px] rounded-[12px]
+                     text-[12px] rounded-[12px]
                      border border-[#EEEEEE]
-                     py-[8px] px-[16px]" 
+                     py-[8px] px-[16px]
+                     cursor-pointer" 
                 >
                     Cocktail
                 </span>
                 <span
                      className="font-medium
-                     text-[14px] rounded-[12px]
+                     text-[12px] rounded-[12px]
                      border border-[#EEEEEE]
-                     py-[8px] px-[16px]" 
+                     py-[8px] px-[16px]
+                     cursor-pointer" 
                 >
                     Shooters
                 </span>
                 <span
                      className="font-medium
-                     text-[14px] rounded-[12px]
+                     text-[12px] rounded-[12px]
                      border border-[#EEEEEE]
-                     py-[8px] px-[16px]" 
+                     py-[8px] px-[16px]
+                     cursor-pointer" 
                 >
                     Premium Spirits
                 </span>
                 <span
                      className="font-medium
-                     text-[14px] rounded-[12px]
+                     text-[12px] rounded-[12px]
                      border border-[#EEEEEE]
-                     py-[8px] px-[16px]" 
-                >
-                    Cocktail
-                </span>
-                <span
-                     className="font-medium
-                     text-[14px] rounded-[12px]
-                     border border-[#EEEEEE]
-                     py-[8px] px-[16px]" 
+                     py-[8px] px-[16px]
+                     cursor-pointer" 
                 >
                     Non-Alcoholic Beverages
                 </span>

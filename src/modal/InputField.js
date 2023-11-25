@@ -1,13 +1,28 @@
 import { LuArrowUpFromLine } from "react-icons/lu";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdToggleOff, MdToggleOn } from 'react-icons/md';
 
 
 export default function InputField() {
+  
+  const initialCategories = [
+    'Cocktail',
+    'Shooters',
+    'Premium Spirits',
+    'Non-Alcoholic Beverages',
+  ];
+
   const [enableVariants, setEnableVariants] = useState(false);
   const toggleVariants = () => {
     setEnableVariants(!enableVariants);
   };
+
+  const savedCategories = JSON.parse(localStorage.getItem('categories'));
+  const [categories, setCategories] = useState(savedCategories || initialCategories);
+
+  useEffect(() => {
+    localStorage.setItem('categories', JSON.stringify(categories));
+  }, [categories]);
 
   return (
     <div className="w-4/5 h-auto 
@@ -19,7 +34,7 @@ export default function InputField() {
           Your Product Name
           <input
             type="text"
-            className="mt-1 border border-gray-300 p-2 rounded-md w-4/5 bg-[#1A1A1A] outline-none"
+            className="mt-1 border border-gray-300 p-2 rounded-md w-full bg-[#1A1A1A] outline-none"
             placeholder="Product Name"
           />
         </label>
@@ -35,8 +50,8 @@ export default function InputField() {
         </label>
       </div>
 
-      {/* Category */}
-      <div className="flex flex-col md:flex-row w-full gap-2 mt-4">
+       {/* Category */}
+       <div className="flex flex-col md:flex-row w-full gap-2 mt-4">
         <label className="mb-2 text-white w-full">
           Category
           <select
@@ -46,10 +61,11 @@ export default function InputField() {
             <option value="" disabled>
               Select Category
             </option>
-            <option value="Cocktail">Cocktail</option>
-            <option value="Shooters">Shooters</option>
-            <option value="PremiumSpirits">Premium Spirits</option>
-            <option value="NonAlcoholic">Non-Alcoholic Beverages</option>
+            {categories.map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
           </select>
         </label>
       </div>

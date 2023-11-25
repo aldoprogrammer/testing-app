@@ -75,13 +75,7 @@ function PopUp({ onClose }) {
         mt-6 text-white">Add Menu</h3>
         <InputField/>
         
-        {/* Add content for your pop-up */}
-        <button className="mt-4 mx-auto bg-gradient-to-r 
-        from-purple-600 to-pink-500 text-white
-         p-2 rounded md:w-4/5 hover:to-purple-600 hover:from-pink-500
-         transition ease-out duration-500">
-        Add Product
-        </button>
+      
 
       </div>
     </div>

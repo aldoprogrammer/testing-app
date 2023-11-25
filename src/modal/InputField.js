@@ -4,7 +4,9 @@ import { MdToggleOff, MdToggleOn } from 'react-icons/md';
 
 
 export default function InputField() {
-  
+ 
+
+
   const initialCategories = [
     'Cocktail',
     'Shooters',
@@ -24,6 +26,24 @@ export default function InputField() {
     localStorage.setItem('categories', JSON.stringify(categories));
   }, [categories]);
 
+  const [name, setName] = useState('');
+  const [code, setCode] = useState('');
+  const [desc, setDesc] = useState('');
+  const [price, setPrice] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [discPrice, setDiscPrice] = useState('');
+  const [img, setImg] = useState('');
+
+  const saveToLocalStorage = () => {
+    localStorage.setItem('productName', name);
+    localStorage.setItem('menuCode', code);
+    localStorage.setItem('productDescription', desc);
+    localStorage.setItem('price', price);
+    localStorage.setItem('discountedPrice', discPrice);
+    localStorage.setItem('img', img);
+    localStorage.setItem('selectedCategory', selectedCategory);
+  };
+
   return (
     <div className="w-4/5 h-auto 
     flex flex-col mx-auto
@@ -36,6 +56,8 @@ export default function InputField() {
             type="text"
             className="mt-1 border border-gray-300 p-2 rounded-md w-full bg-[#1A1A1A] outline-none"
             placeholder="Product Name"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
           />
         </label>
 
@@ -46,6 +68,8 @@ export default function InputField() {
             type="text"
             className="mt-1 border border-gray-300 p-2 rounded-md w-full bg-[#1A1A1A] outline-none"
             placeholder="Menu code"
+            onChange={(e) => setCode(e.target.value)}
+            value={code}
           />
         </label>
       </div>
@@ -57,6 +81,8 @@ export default function InputField() {
           <select
             className="mt-1 border border-gray-300 p-2 rounded-md w-full bg-[#1A1A1A] outline-none"
             defaultValue=""
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            value={selectedCategory}
           >
             <option value="" disabled>
               Select Category
@@ -78,6 +104,8 @@ export default function InputField() {
           <textarea
             className="mt-1 border border-gray-300 p-2 rounded-md w-full bg-[#1A1A1A] outline-none resize-none"
             placeholder="Product description"
+            onChange={(e) => setDesc(e.target.value)}
+            value={desc}
           ></textarea>
         </label>
       </div>
@@ -97,6 +125,8 @@ export default function InputField() {
               py-2 rounded-md w-full 
               bg-[#1A1A1A] outline-none"
               placeholder="Price"
+              onChange={(e) => setPrice(e.target.value)}
+              value={price}
             />
           </div>
         </label>
@@ -112,6 +142,8 @@ export default function InputField() {
               pl-12 pr-2 py-2 rounded-md w-full 
               bg-[#1A1A1A] outline-none"
               placeholder="Discounted price"
+              onChange={(e) => setDiscPrice(e.target.value)}
+              value={discPrice}
             />
           </div>
         </label>
@@ -136,6 +168,8 @@ export default function InputField() {
               type="file"
               accept="image/*"
               className="border border-gray-300 p-2 rounded-md w-full bg-[#1A1A1A] outline-none hidden"
+              onChange={(e) => setImg(e.target.value)}
+              value={img}
             />
            
             <LuArrowUpFromLine size={20} color="#AB5CFA" className="ml-2" />
@@ -156,6 +190,16 @@ export default function InputField() {
           </div>
         </div>
       </div>
+
+        {/* Add content for your pop-up */}
+        <button className="mt-4 mx-auto bg-gradient-to-r 
+        from-purple-600 to-pink-500 text-white
+         p-2 rounded w-full hover:to-purple-600 hover:from-pink-500
+         transition ease-out duration-500"
+         onClick={() => {
+          saveToLocalStorage();}}>
+        Add Product
+        </button>
     </div>
   );
 }

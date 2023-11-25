@@ -40,6 +40,7 @@ export default function MainContent () {
         setEditing(false);
       };
     
+      
 
     return (
         <div className="md:w-3/5
@@ -77,11 +78,17 @@ export default function MainContent () {
               {category}
             </span>
           ))}
-          <HiOutlinePencil
-            size={20}
-            className="cursor-pointer"
-            onClick={handleEditClick}
-          />
+           <div className="relative inline-block group">
+      <HiOutlinePencil
+        size={20}
+        className="cursor-pointer text-white hover:text-[#F2ECEC] transition-colors"
+        onClick={handleEditClick}
+      />
+      <div className="opacity-0 bg-gray-800 text-white text-base rounded-md py-1 px-2 absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 transition-opacity duration-300 group-hover:opacity-100">
+        Click to Edit the Categories
+      </div>
+    </div>
+          
         </div>
       )}
     </div>
